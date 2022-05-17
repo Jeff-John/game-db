@@ -39,7 +39,7 @@ interface Publishers{
 interface Rating{
     id: number;
     count: number;
-    tittle: string;
+    title: string;
 }
 
 interface Screenshots{
@@ -49,5 +49,7 @@ interface Screenshots{
 interface Trailer{
     data:{
         max: string;
-    };
+    },
+    name: string,
+    preview: string;
 }

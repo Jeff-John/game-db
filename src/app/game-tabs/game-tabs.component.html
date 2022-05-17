@@ -1,1 +1,46 @@
-<p>game-tabs works!</p>
+<div class="game-tabs">
+    <mat-tab-group mat-allign-tabs="start" backgroundColor="primary">
+
+        <mat-tab label="About">
+            <p class="game-tabs-par" *ngIf="game.parent_platforms?.length">
+                Platforms:
+                <span *ngFor="let game1 of game.parent_platforms; let last = last">
+                    {{game1.platform.name}}<span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p class="game-tabs-par" *ngIf="game.parent_platforms?.length">
+                Publishers:
+                <span *ngFor="let game1 of game.publishers; let last = last">
+                    {{game1.name}}<span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p class="game-tabs-par" *ngIf="game.parent_platforms?.length">
+                Website:
+                <a class="game-tab-link" href="{{game.website}}" target="_blank">{{game.website}}</a>
+            </p>
+            <div class="game-description" [innerHtml]="game.description"></div>
+            <p class="game-tabs-votes">
+                <ng-container *ngFor="let rating of game.ratings">
+                    <span *ngIf="rating.title === 'exceptional'">
+                        <mat-icon class="game-votes-up">thumb_up</mat-icon>
+                        <span class="game-votes-count">{{rating.count || 0}}</span>
+                    </span>
+                    <span *ngIf="rating.title === 'skip'">
+                        <mat-icon class="game-votes-down">thumb_down</mat-icon>
+                        <span class="game-votes-count">{{rating.count || 0}}</span>
+                    </span>
+                </ng-container>
+            </p>
+        </mat-tab>
+
+        <mat-tab label="Screenshots" *ngIf="game.screenshots?.length">
+            <img class="game-screenshot" *ngFor="let ss of game.screenshots" src="{{ss.image}}">
+        </mat-tab>
+
+        <mat-tab label="Trailers" *ngIf="game.trailers?.length">
+            <ng-image-slider #nav [images]="imageObject" [infinite]="true" [autoSlide]="1"
+		[imageSize]="{width: '100%', height: '100%'}" slideImage="1"></ng-image-slider>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

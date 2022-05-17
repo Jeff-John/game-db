@@ -17,8 +17,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { HomeComponent } from './home/home.component';
 import { DetailsComponent } from './details/details.component';
 import { GameTabsComponent } from './game-tabs/game-tabs.component';
-// import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
-
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,7 @@ import { GameTabsComponent } from './game-tabs/game-tabs.component';
     SearchBarComponent,
     HomeComponent,
     DetailsComponent,
-    GameTabsComponent
+    GameTabsComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,7 +37,8 @@ import { GameTabsComponent } from './game-tabs/game-tabs.component';
     MatTabsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    NgImageSliderModule
   ],
   providers: [
     {
